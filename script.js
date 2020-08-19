@@ -9,7 +9,11 @@ function writePassword() {
   passwordText.value = password;
 }
 
-let passwordReqs = [];
+let passwordReqs = '';
+const special = '!@#$&';
+const lower = 'abcdefghijklmnopqrstuvwxyz';
+const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const number = '0123456789';
 
 function generatePassword() {
   let lengthPrompt = prompt('How many characters does your password require? Enter a number between 8 and 128.'); {
@@ -38,7 +42,16 @@ function generatePassword() {
 
   if (specialPassword === false && lowerPassword === false && upperPassword === false && numberPassword ===false) {
     alert('You must select at least one required character type. Please try again.');
+  } else if (specialPassword === true) {
+    passwordReqs = passwordReqs.concat(special);
+  } if (lowerPassword === true) {
+    passwordReqs = passwordReqs.concat(lower);
+  } if (upperPassword === true) {
+    passwordReqs = passwordReqs.concat(upper);
+  } if (numberPassword === true) {
+    passwordReqs = passwordReqs.concat(number);
   }
+  console.log(passwordReqs);
 }
 
 
