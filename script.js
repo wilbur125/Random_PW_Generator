@@ -36,22 +36,33 @@ function generatePassword() {
   upperPassword = upperConfirm;
   console.log('Upper = ' + upperPassword)
   
-  let numberConfirm = confirm('Will your password require numbers?');
+  let numberConfirm = confirm('Will your password require numbers?\n\nClick "Okay" for Yes or "Cancel" for No');
   numberPassword = numberConfirm;
   console.log('Number = ' + numberPassword);
 
   if (specialPassword === false && lowerPassword === false && upperPassword === false && numberPassword ===false) {
     alert('You must select at least one required character type. Please try again.');
-  } else if (specialPassword === true) {
+  };
+
+  if (specialPassword === true) {
     passwordReqs = passwordReqs.concat(special);
-  } if (lowerPassword === true) {
+  }; 
+  if (lowerPassword === true) {
     passwordReqs = passwordReqs.concat(lower);
-  } if (upperPassword === true) {
+  };
+  if (upperPassword === true) {
     passwordReqs = passwordReqs.concat(upper);
-  } if (numberPassword === true) {
+  }; 
+  if (numberPassword === true) {
     passwordReqs = passwordReqs.concat(number);
-  }
+  };
   console.log(passwordReqs);
+  
+  let passwordRandom = '';
+  for (i = 0; i < lengthPassword; i++) {
+    passwordRandom += passwordReqs.charAt(Math.floor(Math.random() * passwordReqs.length));
+  }
+  console.log(passwordRandom);
 }
 
 
