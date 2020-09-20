@@ -95,8 +95,9 @@ function generatePassword() {
 
   password = passwordRandom.replace(passwordRandom.substr(0, fixLength),'');
   console.log(password);
-  }
 
+  return password;
+  }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
